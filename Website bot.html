@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bot WhatsApp REZ•oneXD</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: purple;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      color: white;
+    }
+
+    .btn {
+      display: block;
+      margin: 15px auto;
+      padding: 12px 20px;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #128C7E;
+    }
+
+    .btn.youtube {
+      background-color: #FF0000;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    {
+      margin: 0;
+      padding: 0;
+      background: url('URL_GAMBAR') no-repeat center center fixed;
+      background-size: cover;
+      font-family: monospace;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      backdrop-filter: brightness(0.8); /* Efek gelap pada background */
+    }
+    .clock, .date {
+      font-size: 4em;
+      padding: 20px 40px;
+      border-radius: 15px;
+      margin: 10px;
+      border: 2px solid;
+      text-shadow: 0 0 10px;
+      background-color: rgba(0, 0, 0, 0.5); /* Latar belakang semi-transparan */
+    }
+    .date {
+      font-size: 2em;
+      border: none;
+      padding: 10px;
+    }
+    .footer {
+      position: absolute;
+      bottom: 10px;
+      font-size: 1em;
+    }
+    .buttons {
+      margin-top: 15px;
+    }
+    button {
+      margin: 0 5px;
+      padding: 10px 15px;
+      font-size: 1em;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <h1>Selamat Datang di REZ•oneXD</h1>
+  <div class="card">
+    <p><strong>REZ•oneXD</strong> adalah bot WhatsApp buatan gw yang bisa bantuin kamu dengan <u><b>berbagai fitur</b></u> <i>seperti</i>:</p>
+    <ul style="text-align:left;">
+      <li>Stiker otomatis</li>
+      <li>Downloader YouTube, TikTok, dll</li>
+      <li>AI Chatting</li>
+      <li>Dan masih banyak lagi!</li>
+    </ul>
+    
+    <a class="btn" href="https://chat.whatsapp.com/INy6sDnCOhj5um8ccIAUEL" target="_blank">Join Grup WhatsApp</a>
+    <a class="btn youtube" href="https://youtube.com/@gxdikzzofficial?si=7H5LBWVe-3QG3YuJ" target="_blank">SUBSCRIBE Channel Gx Dikzz</a>
+  </div>
+
+  <div class="clock" id="clock">--:--:--</div>
+  <div class="date" id="date">--, -- --- ----</div>
+  </div>
+  <div class="footer" id="footer">by. Gx Dikzz</div>
+
+  <audio id="tick-sound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_f7305e81a6.mp3?filename=clock-tick-1-second-105051.mp3"></audio>
+  <!-- Musik latar belakang -->
+<audio id="bg-music" src="https://cdn.pixabay.com/download/audio/2023/03/22/audio_1b62d9ec40.mp3?filename=relaxing-technology-ambient-144997.mp3" autoplay loop></audio>
+
+
+  <script>
+    const clock = document.getElementById('clock');
+    const date = document.getElementById('date');
+    const tick = document.getElementById('tick-sound');
+    const footer = document.getElementById('footer');
+
+    function updateClock() {
+      const now = new Date();
+      const jam = String(now.getHours()).padStart(2, '0');
+      const menit = String(now.getMinutes()).padStart(2, '0');
+      const detik = String(now.getSeconds()).padStart(2, '0');
+      const hari = ['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'][now.getDay()];
+      const tanggal = String(now.getDate()).padStart(2, '0');
+      const bulan = ['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'][now.getMonth()];
+      const tahun = now.getFullYear();
+
+      clock.textContent = `${jam}:${menit}:${detik}`;
+      date.textContent = `${hari}, ${tanggal} ${bulan} ${tahun}`;
+
+      tick.currentTime = 0;
+      tick.play();
+    }
+
+    function changeColor(color) {
+      clock.style.color = color;
+      clock.style.borderColor = color;
+      clock.style.textShadow = `0 0 10px ${color}`;
+      date.style.color = color;
+      date.style.textShadow = `0 0 10px ${color}`;
+      footer.style.color = color;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+    changeColor('lime'); // Warna default
+  </script>
+</body>
+</html>
